@@ -95,7 +95,7 @@
 <meta property="og:url" content="http://xinus.wang/2013/01/nsstring-compare-trap/index.html">
 <meta property="og:site_name" content="心有思">
 <meta property="og:description" content="NSString有多个compare相关方法：1234- (NSComparisonResult)compare:(NSString *)string;- (NSComparisonResult)compare:(NSString *)string options:(NSStringCompareOptions)mask;- (NSComparisonResult)compare:(NSStrin">
-<meta property="og:updated_time" content="2017-03-21T06:00:50.000Z">
+<meta property="og:updated_time" content="2017-03-30T07:08:19.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="iOS开发陷阱之NSString - compare">
 <meta name="twitter:description" content="NSString有多个compare相关方法：1234- (NSComparisonResult)compare:(NSString *)string;- (NSComparisonResult)compare:(NSString *)string options:(NSStringCompareOptions)mask;- (NSComparisonResult)compare:(NSStrin">
@@ -142,6 +142,16 @@
 
 
 
+
+  <script type="text/javascript">
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "https://hm.baidu.com/hm.js?629caadb26ae4227c076e75b0f27e4fc";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
 
 
 
@@ -401,8 +411,7 @@
       
         <p>NSString有多个compare相关方法：<br><figure class="highlight objc"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">- (<span class="built_in">NSComparisonResult</span>)compare:(<span class="built_in">NSString</span> *)string;</div><div class="line">- (<span class="built_in">NSComparisonResult</span>)compare:(<span class="built_in">NSString</span> *)string options:(<span class="built_in">NSStringCompareOptions</span>)mask;</div><div class="line">- (<span class="built_in">NSComparisonResult</span>)compare:(<span class="built_in">NSString</span> *)string options:(<span class="built_in">NSStringCompareOptions</span>)mask range:(<span class="built_in">NSRange</span>)compareRange;</div><div class="line">- (<span class="built_in">NSComparisonResult</span>)compare:(<span class="built_in">NSString</span> *)string options:(<span class="built_in">NSStringCompareOptions</span>)mask range:(<span class="built_in">NSRange</span>)compareRange locale:(<span class="keyword">id</span>)locale;</div></pre></td></tr></table></figure></p>
 <p><strong>NSComparisonResult</strong> 是定义的一个枚举，定义如下：<br><figure class="highlight objc"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">typedef</span> <span class="built_in">NS_ENUM</span>(<span class="built_in">NSInteger</span>, <span class="built_in">NSComparisonResult</span>) &#123;<span class="built_in">NSOrderedAscending</span> = <span class="number">-1</span>L, <span class="built_in">NSOrderedSame</span>, <span class="built_in">NSOrderedDescending</span>&#125;;</div></pre></td></tr></table></figure></p>
-<p>其中，<strong>NSOrderedSame</strong> 表示比较的两个字符串完全一致, 同时，在这个枚举中，它的值是 0.</p>
-<p>字符串比较在程序中很常见，比如：<br><figure class="highlight objc"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">if</span> ([str1 compare:<span class="string">@"some text"</span>] == <span class="built_in">NSOrderedSame</span>) &#123;</div><div class="line">    <span class="comment">// Do something</span></div><div class="line">&#125;</div><div class="line"><span class="keyword">else</span> &#123;</div><div class="line">    <span class="comment">// Do something else</span></div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>其中，<strong>NSOrderedSame</strong> 表示比较的两个字符串完全一致, 同时，在这个枚举中，它的值是 0.<br><a id="more"></a><br>字符串比较在程序中很常见，比如：<br><figure class="highlight objc"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">if</span> ([str1 compare:<span class="string">@"some text"</span>] == <span class="built_in">NSOrderedSame</span>) &#123;</div><div class="line">    <span class="comment">// Do something</span></div><div class="line">&#125;</div><div class="line"><span class="keyword">else</span> &#123;</div><div class="line">    <span class="comment">// Do something else</span></div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
 <p>但，如果如上中的str1为nil，根据Objective-C的消息调用规则（方法调用），对nil发送的任何消息，得到的返回都是nil。这样的情况下，运行时是不会像C/C++那样，出现空指针的非法访问而使得程序强行终止。也就是说，在Objective-C下面，即便str1为nil，也不会造成程序崩溃，而是会继续运行。</p>
 <p>那么当str1为空的时候，[str1 compare:@”some text”] 消息的返回就会为nil。nil表示一个空的Objective-C对象，实际就是表示一个空指针，而它代表的值就是0，与NSOrderedSame的值相等. 如此，回到最前面的if语句，如果str1为nil，那么整个语句的值为真。这会给程序造成非常严重的问题，小则逻辑错误，UI显示错误等，大则会造成数据泄漏等等。。。所以，一旦出现这种情况，还是很严重的。</p>
 <p>笔者个人建议，以上代码至少应该写为：<br><figure class="highlight objc"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">if</span> (str1!=<span class="literal">nil</span> &amp;&amp; [str1 compare:<span class="string">@"some text"</span>] == <span class="built_in">NSOrderedSame</span>) &#123;</div><div class="line">    <span class="comment">// Do something</span></div><div class="line">&#125;</div><div class="line"><span class="keyword">else</span> &#123;</div><div class="line">    <span class="comment">// Do something else</span></div><div class="line">&#125;</div></pre></td></tr></table></figure></p>

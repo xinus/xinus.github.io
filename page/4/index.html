@@ -142,6 +142,16 @@
 
 
 
+  <script type="text/javascript">
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "https://hm.baidu.com/hm.js?629caadb26ae4227c076e75b0f27e4fc";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
 
 
 
@@ -839,16 +849,16 @@
 
       
         
-          
-            <p>NSString有多个compare相关方法：<br><figure class="highlight objc"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">- (<span class="built_in">NSComparisonResult</span>)compare:(<span class="built_in">NSString</span> *)string;</div><div class="line">- (<span class="built_in">NSComparisonResult</span>)compare:(<span class="built_in">NSString</span> *)string options:(<span class="built_in">NSStringCompareOptions</span>)mask;</div><div class="line">- (<span class="built_in">NSComparisonResult</span>)compare:(<span class="built_in">NSString</span> *)string options:(<span class="built_in">NSStringCompareOptions</span>)mask range:(<span class="built_in">NSRange</span>)compareRange;</div><div class="line">- (<span class="built_in">NSComparisonResult</span>)compare:(<span class="built_in">NSString</span> *)string options:(<span class="built_in">NSStringCompareOptions</span>)mask range:(<span class="built_in">NSRange</span>)compareRange locale:(<span class="keyword">id</span>)locale;</div></pre></td></tr></table></figure></p>
+          <p>NSString有多个compare相关方法：<br><figure class="highlight objc"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">- (<span class="built_in">NSComparisonResult</span>)compare:(<span class="built_in">NSString</span> *)string;</div><div class="line">- (<span class="built_in">NSComparisonResult</span>)compare:(<span class="built_in">NSString</span> *)string options:(<span class="built_in">NSStringCompareOptions</span>)mask;</div><div class="line">- (<span class="built_in">NSComparisonResult</span>)compare:(<span class="built_in">NSString</span> *)string options:(<span class="built_in">NSStringCompareOptions</span>)mask range:(<span class="built_in">NSRange</span>)compareRange;</div><div class="line">- (<span class="built_in">NSComparisonResult</span>)compare:(<span class="built_in">NSString</span> *)string options:(<span class="built_in">NSStringCompareOptions</span>)mask range:(<span class="built_in">NSRange</span>)compareRange locale:(<span class="keyword">id</span>)locale;</div></pre></td></tr></table></figure></p>
 <p><strong>NSComparisonResult</strong> 是定义的一个枚举，定义如下：<br><figure class="highlight objc"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">typedef</span> <span class="built_in">NS_ENUM</span>(<span class="built_in">NSInteger</span>, <span class="built_in">NSComparisonResult</span>) &#123;<span class="built_in">NSOrderedAscending</span> = <span class="number">-1</span>L, <span class="built_in">NSOrderedSame</span>, <span class="built_in">NSOrderedDescending</span>&#125;;</div></pre></td></tr></table></figure></p>
-<p>其中，<strong>NSOrderedSame</strong> 表示比较的两个字符串完全一致, 同时，在这个枚举中，它的值是 0.</p>
-<p>字符串比较在程序中很常见，比如：<br><figure class="highlight objc"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">if</span> ([str1 compare:<span class="string">@"some text"</span>] == <span class="built_in">NSOrderedSame</span>) &#123;</div><div class="line">    <span class="comment">// Do something</span></div><div class="line">&#125;</div><div class="line"><span class="keyword">else</span> &#123;</div><div class="line">    <span class="comment">// Do something else</span></div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
-<p>但，如果如上中的str1为nil，根据Objective-C的消息调用规则（方法调用），对nil发送的任何消息，得到的返回都是nil。这样的情况下，运行时是不会像C/C++那样，出现空指针的非法访问而使得程序强行终止。也就是说，在Objective-C下面，即便str1为nil，也不会造成程序崩溃，而是会继续运行。</p>
-<p>那么当str1为空的时候，[str1 compare:@”some text”] 消息的返回就会为nil。nil表示一个空的Objective-C对象，实际就是表示一个空指针，而它代表的值就是0，与NSOrderedSame的值相等. 如此，回到最前面的if语句，如果str1为nil，那么整个语句的值为真。这会给程序造成非常严重的问题，小则逻辑错误，UI显示错误等，大则会造成数据泄漏等等。。。所以，一旦出现这种情况，还是很严重的。</p>
-<p>笔者个人建议，以上代码至少应该写为：<br><figure class="highlight objc"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">if</span> (str1!=<span class="literal">nil</span> &amp;&amp; [str1 compare:<span class="string">@"some text"</span>] == <span class="built_in">NSOrderedSame</span>) &#123;</div><div class="line">    <span class="comment">// Do something</span></div><div class="line">&#125;</div><div class="line"><span class="keyword">else</span> &#123;</div><div class="line">    <span class="comment">// Do something else</span></div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
-
-          
+<p>其中，<strong>NSOrderedSame</strong> 表示比较的两个字符串完全一致, 同时，在这个枚举中，它的值是 0.<br>
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2013/01/nsstring-compare-trap/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
@@ -1279,71 +1289,14 @@
 
       
         
-          
-            <h3 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h3><p>iOS开发中NSDateFormatter是一个很常用的类，用于格式化NSDate对象，支持本地化的信息。与时间相关的功能还可能会用到NSDateComponents类和NSCalendar类等。本文主要列出NSDateFormatter常见用法。<br>NSDate对象包含两个部分，日期（Date）和时间（Time）。格式化的时间字符串主要也是针对日期和时间的。[以下代码中开启了ARC，所以没有release。]</p>
-<h3 id="基础用法"><a href="#基础用法" class="headerlink" title="基础用法"></a>基础用法</h3><figure class="highlight objc"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">NSDate</span>* now = [<span class="built_in">NSDate</span> date];</div><div class="line"><span class="built_in">NSDateFormatter</span>* fmt = [[<span class="built_in">NSDateFormatter</span> alloc] init];</div><div class="line">fmt.dateStyle = kCFDateFormatterShortStyle;</div><div class="line">fmt.timeStyle = kCFDateFormatterShortStyle;</div><div class="line">fmt.locale = [[<span class="built_in">NSLocale</span> alloc] initWithLocaleIdentifier:<span class="string">@"en_US"</span>];</div><div class="line"><span class="built_in">NSString</span>* dateString = [fmt stringFromDate:now];</div><div class="line"><span class="built_in">NSLog</span>(<span class="string">@"%@"</span>, dateString);</div></pre></td></tr></table></figure>
-<p>打印输出：10/29/12, 2:27 PM<br>这使用的系统提供的格式化字符串，通过 fmt.dateStyle 和 fmt.timeStyle 进行的设置。实例中使用的参数是 kCFDateFormatterShortStyle，此外还有：</p>
-<figure class="highlight objc"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">typedef</span> <span class="built_in">CF_ENUM</span>(<span class="built_in">CFIndex</span>, <span class="built_in">CFDateFormatterStyle</span>) &#123;    <span class="comment">// date and time format styles</span></div><div class="line">    kCFDateFormatterNoStyle = <span class="number">0</span>,       <span class="comment">// 无输出</span></div><div class="line">    kCFDateFormatterShortStyle = <span class="number">1</span>,    <span class="comment">// 10/29/12, 2:27 PM</span></div><div class="line">    kCFDateFormatterMediumStyle = <span class="number">2</span>,   <span class="comment">// Oct 29, 2012, 2:36:59 PM</span></div><div class="line">    kCFDateFormatterLongStyle = <span class="number">3</span>,     <span class="comment">// October 29, 2012, 2:38:46 PM GMT+08:00</span></div><div class="line">    kCFDateFormatterFullStyle = <span class="number">4</span>      <span class="comment">// Monday, October 29, 2012, 2:39:56 PM China Standard Time</span></div><div class="line">&#125;;</div></pre></td></tr></table></figure>
-<h3 id="自定义区域语言"><a href="#自定义区域语言" class="headerlink" title="自定义区域语言"></a>自定义区域语言</h3><p>如上实例中，我们使用的是区域语言是 en_US，指的是美国英语。如果我们换成简体中文，则代码是：<br><figure class="highlight objc"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">fmt.locale = [[<span class="built_in">NSLocale</span> alloc] initWithLocaleIdentifier:<span class="string">@"zh_CN"</span>];</div></pre></td></tr></table></figure></p>
-<p>则对应的输出为：<br><figure class="highlight objc"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">typedef</span> <span class="built_in">CF_ENUM</span>(<span class="built_in">CFIndex</span>, <span class="built_in">CFDateFormatterStyle</span>) &#123;    <span class="comment">// date and time format styles</span></div><div class="line">    kCFDateFormatterNoStyle = <span class="number">0</span>,       <span class="comment">// 无输出</span></div><div class="line">    kCFDateFormatterShortStyle = <span class="number">1</span>,    <span class="comment">// 12-10-29 下午2:52</span></div><div class="line">    kCFDateFormatterMediumStyle = <span class="number">2</span>,   <span class="comment">// 2012-10-29 下午2:51:43</span></div><div class="line">    kCFDateFormatterLongStyle = <span class="number">3</span>,     <span class="comment">// 2012年10月29日 GMT+0800下午2时51分08秒</span></div><div class="line">    kCFDateFormatterFullStyle = <span class="number">4</span>      <span class="comment">// 2012年10月29日星期一 中国标准时间下午2时46分49秒</span></div><div class="line">&#125;;</div></pre></td></tr></table></figure></p>
-<p>世界通用的区域语言代码，详见 International Components for Unicode (ICU),  <a href="http://userguide.icu-project.org/formatparse/datetime" target="_blank" rel="external">http://userguide.icu-project.org/formatparse/datetime</a></p>
-<h3 id="自定义日期时间格式"><a href="#自定义日期时间格式" class="headerlink" title="自定义日期时间格式"></a>自定义日期时间格式</h3><p>NSDateFormatter提供了自定义日期时间的方法，主要是通过设置属性 dateFormat，常见的设置如下：<br><figure class="highlight objc"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">NSDate</span>* now = [<span class="built_in">NSDate</span> date];</div><div class="line"><span class="built_in">NSDateFormatter</span>* fmt = [[<span class="built_in">NSDateFormatter</span> alloc] init];</div><div class="line">fmt.locale = [[<span class="built_in">NSLocale</span> alloc] initWithLocaleIdentifier:<span class="string">@"zh_CN"</span>];</div><div class="line">fmt.dateFormat = <span class="string">@"yyyy-MM-dd'T'HH:mm:ss"</span>;</div><div class="line"><span class="built_in">NSString</span>* dateString = [fmt stringFromDate:now];</div><div class="line"><span class="built_in">NSLog</span>(<span class="string">@"%@"</span>, dateString);</div></pre></td></tr></table></figure></p>
-<p>打印输出：2012-10-29T16:08:40</p>
-<p>除了上面列出的，还可以指定很多格式，详见<a href="http://userguide.icu-project.org/formatparse/datetime。" target="_blank" rel="external">http://userguide.icu-project.org/formatparse/datetime。</a><br>结合设置Locale，还可以打印出本地化的字符串信息。<br><figure class="highlight objc"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">NSDate</span>* now = [<span class="built_in">NSDate</span> date];</div><div class="line"><span class="built_in">NSDateFormatter</span>* fmt = [[<span class="built_in">NSDateFormatter</span> alloc] init];</div><div class="line">fmt.locale = [[<span class="built_in">NSLocale</span> alloc] initWithLocaleIdentifier:<span class="string">@"zh_CN"</span>];</div><div class="line">fmt.dateFormat = <span class="string">@"yyyy-MM-dd a HH:mm:ss EEEE"</span>;</div><div class="line"><span class="built_in">NSString</span>* dateString = [fmt stringFromDate:now];</div><div class="line"><span class="built_in">NSLog</span>(<span class="string">@"\n%@"</span>, dateString);</div></pre></td></tr></table></figure></p>
-<p>打印输出：2012-10-29 下午 16:25:27 星期一</p>
-<h3 id="自定义月份星期等字符"><a href="#自定义月份星期等字符" class="headerlink" title="自定义月份星期等字符"></a>自定义月份星期等字符</h3><p>NSDateFormatter中同样提供了相应的方式，去修改这些字符。一般情况下，使用相应区域语言下面的默认字符就OK了。但是你的确有这个需求，那么也是可以办到的。相应的方法非常多，如下：</p>
-<h4 id="Managing-AM-and-PM-Symbols"><a href="#Managing-AM-and-PM-Symbols" class="headerlink" title="Managing AM and PM Symbols"></a>Managing AM and PM Symbols</h4><ul>
-<li>AMSymbol</li>
-<li>setAMSymbol:</li>
-<li>PMSymbol</li>
-<li>setPMSymbol:</li>
-</ul>
-<h4 id="Managing-Weekday-Symbols"><a href="#Managing-Weekday-Symbols" class="headerlink" title="Managing Weekday Symbols"></a>Managing Weekday Symbols</h4><ul>
-<li>weekdaySymbols</li>
-<li>setWeekdaySymbols:</li>
-<li>shortWeekdaySymbols</li>
-<li>setShortWeekdaySymbols:</li>
-<li>veryShortWeekdaySymbols</li>
-<li>setVeryShortWeekdaySymbols:</li>
-<li>standaloneWeekdaySymbols</li>
-<li>setStandaloneWeekdaySymbols:</li>
-<li>shortStandaloneWeekdaySymbols</li>
-<li>setShortStandaloneWeekdaySymbols:</li>
-<li>veryShortStandaloneWeekdaySymbols</li>
-<li>setVeryShortStandaloneWeekdaySymbols:</li>
-</ul>
-<h4 id="Managing-Month-Symbols"><a href="#Managing-Month-Symbols" class="headerlink" title="Managing Month Symbols"></a>Managing Month Symbols</h4><ul>
-<li>monthSymbols</li>
-<li>setMonthSymbols:</li>
-<li>shortMonthSymbols</li>
-<li>setShortMonthSymbols:</li>
-<li>veryShortMonthSymbols</li>
-<li>setVeryShortMonthSymbols:</li>
-<li>standaloneMonthSymbols</li>
-<li>setStandaloneMonthSymbols:</li>
-<li>shortStandaloneMonthSymbols</li>
-<li>setShortStandaloneMonthSymbols:</li>
-<li>veryShortStandaloneMonthSymbols</li>
-<li>setVeryShortStandaloneMonthSymbols:</li>
-</ul>
-<h4 id="Managing-Quarter-Symbols"><a href="#Managing-Quarter-Symbols" class="headerlink" title="Managing Quarter Symbols"></a>Managing Quarter Symbols</h4><ul>
-<li>quarterSymbols</li>
-<li>setQuarterSymbols:</li>
-<li>shortQuarterSymbols</li>
-<li>setShortQuarterSymbols:</li>
-<li>standaloneQuarterSymbols</li>
-<li>setStandaloneQuarterSymbols:</li>
-<li>shortStandaloneQuarterSymbols</li>
-<li>setShortStandaloneQuarterSymbols:</li>
-</ul>
-<h4 id="Managing-Era-Symbols"><a href="#Managing-Era-Symbols" class="headerlink" title="Managing Era Symbols"></a>Managing Era Symbols</h4><ul>
-<li>eraSymbols</li>
-<li>setEraSymbols:</li>
-<li>longEraSymbols</li>
-<li>setLongEraSymbols:</li>
-</ul>
-
-          
+          <h3 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h3><p>iOS开发中NSDateFormatter是一个很常用的类，用于格式化NSDate对象，支持本地化的信息。与时间相关的功能还可能会用到NSDateComponents类和NSCalendar类等。本文主要列出NSDateFormatter常见用法。<br>NSDate对象包含两个部分，日期（Date）和时间（Time）。格式化的时间字符串主要也是针对日期和时间的。[以下代码中开启了ARC，所以没有release。]<br>
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2012/10/nsdateformatter-intro/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>

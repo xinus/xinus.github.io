@@ -90,21 +90,18 @@
 
 
 <meta name="description" content="糟糕的写法翻阅项目中的老代码，发现一百来处如下的写法：12NSMutableArray* array = [@[] mutableCopy];NSMutableDictionary *dict = [@&amp;#123;&amp;#125; mutableCopy];
-这种写法会多构造一个临时的对象，虽然随后就会回收销毁掉，毕竟多了内存申请释放的开销；从语法角度，这个写法也并不能节省多少时间，表意也不简明。
-总">
+这种写法会多构造一个临时的对象，虽然随后就会回收销毁掉，毕竟多了内存申请释放的开销；从语法角度，这个写法也并不能节省多少时间，表意也不简明。">
 <meta property="og:type" content="article">
 <meta property="og:title" content="糟糕的 [@[] mutableCopy] 和 [@{} mutableCopy]">
 <meta property="og:url" content="http://xinus.wang/2017/01/mutablecopy-array-dict-bad/index.html">
 <meta property="og:site_name" content="心有思">
 <meta property="og:description" content="糟糕的写法翻阅项目中的老代码，发现一百来处如下的写法：12NSMutableArray* array = [@[] mutableCopy];NSMutableDictionary *dict = [@&amp;#123;&amp;#125; mutableCopy];
-这种写法会多构造一个临时的对象，虽然随后就会回收销毁掉，毕竟多了内存申请释放的开销；从语法角度，这个写法也并不能节省多少时间，表意也不简明。
-总">
-<meta property="og:updated_time" content="2017-03-21T06:09:39.000Z">
+这种写法会多构造一个临时的对象，虽然随后就会回收销毁掉，毕竟多了内存申请释放的开销；从语法角度，这个写法也并不能节省多少时间，表意也不简明。">
+<meta property="og:updated_time" content="2017-03-30T07:06:30.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="糟糕的 [@[] mutableCopy] 和 [@{} mutableCopy]">
 <meta name="twitter:description" content="糟糕的写法翻阅项目中的老代码，发现一百来处如下的写法：12NSMutableArray* array = [@[] mutableCopy];NSMutableDictionary *dict = [@&amp;#123;&amp;#125; mutableCopy];
-这种写法会多构造一个临时的对象，虽然随后就会回收销毁掉，毕竟多了内存申请释放的开销；从语法角度，这个写法也并不能节省多少时间，表意也不简明。
-总">
+这种写法会多构造一个临时的对象，虽然随后就会回收销毁掉，毕竟多了内存申请释放的开销；从语法角度，这个写法也并不能节省多少时间，表意也不简明。">
 
 
 
@@ -148,6 +145,16 @@
 
 
 
+
+  <script type="text/javascript">
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "https://hm.baidu.com/hm.js?629caadb26ae4227c076e75b0f27e4fc";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
 
 
 
@@ -406,7 +413,7 @@
 
       
         <h3 id="糟糕的写法"><a href="#糟糕的写法" class="headerlink" title="糟糕的写法"></a>糟糕的写法</h3><p>翻阅项目中的老代码，发现一百来处如下的写法：<br><figure class="highlight objc"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">NSMutableArray</span>* array = [@[] mutableCopy];</div><div class="line"><span class="built_in">NSMutableDictionary</span> *dict = [@&#123;&#125; mutableCopy];</div></pre></td></tr></table></figure></p>
-<p>这种写法会多构造一个临时的对象，虽然随后就会回收销毁掉，毕竟多了内存申请释放的开销；从语法角度，这个写法也并不能节省多少时间，表意也不简明。</p>
+<p>这种写法会多构造一个临时的对象，虽然随后就会回收销毁掉，毕竟多了内存申请释放的开销；从语法角度，这个写法也并不能节省多少时间，表意也不简明。<br><a id="more"></a></p>
 <h3 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h3><p>应该使用标准的创建对象的方式:<br><figure class="highlight objc"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">NSMutableArray</span>* array = [<span class="built_in">NSMutableArray</span> array];</div><div class="line"><span class="built_in">NSMutableDictionary</span>* dict = [<span class="built_in">NSMutableDictionary</span> dictionary];</div></pre></td></tr></table></figure></p>
 
       

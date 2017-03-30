@@ -97,7 +97,7 @@ Method possibly missing a [super awakeFromNib] call使用XCode 7时并没有报�
 <meta property="og:site_name" content="心有思">
 <meta property="og:description" content="升级XCode 8 betaXCode 8 Beta使用了iOS 10 SDK为默认的SDK；目前的工程，使用XCode 8 Beta编译时，提示了一些警告信息。
 Method possibly missing a [super awakeFromNib] call使用XCode 7时并没有报出这样的警告，其实故名思议，需要在awakeFromNib方法里面调用其父类的方法。1234- (void">
-<meta property="og:updated_time" content="2017-03-22T03:46:58.000Z">
+<meta property="og:updated_time" content="2017-03-30T07:10:54.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="使用iOS 10 SDK编译的警告">
 <meta name="twitter:description" content="升级XCode 8 betaXCode 8 Beta使用了iOS 10 SDK为默认的SDK；目前的工程，使用XCode 8 Beta编译时，提示了一些警告信息。
@@ -145,6 +145,16 @@ Method possibly missing a [super awakeFromNib] call使用XCode 7时并没有报�
 
 
 
+
+  <script type="text/javascript">
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "https://hm.baidu.com/hm.js?629caadb26ae4227c076e75b0f27e4fc";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
 
 
 
@@ -408,6 +418,7 @@ Method possibly missing a [super awakeFromNib] call使用XCode 7时并没有报�
 <blockquote>
 <p>You must call the super implementation of awakeFromNib to give parent classes the opportunity to perform any additional initialization they require. Although the default implementation of this method does nothing, many UIKit classes provide non-empty implementations. You may call the super implementation at any point during your own awakeFromNib method.</p>
 </blockquote>
+<a id="more"></a>
 <h3 id="CAAnimationDelegate"><a href="#CAAnimationDelegate" class="headerlink" title="CAAnimationDelegate"></a>CAAnimationDelegate</h3><p><code>CAAnimationDelegate</code>在iOS 9 SDK及之前的SDK中，作为NSObject的<strong>Category</strong>：<br><figure class="highlight objc"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="class"><span class="keyword">@interface</span> <span class="title">NSObject</span> (<span class="title">CAAnimationDelegate</span>)</span></div><div class="line">- (<span class="keyword">void</span>)animationDidStart:(<span class="built_in">CAAnimation</span> *)anim;</div><div class="line">- (<span class="keyword">void</span>)animationDidStop:(<span class="built_in">CAAnimation</span> *)anim finished:(<span class="built_in">BOOL</span>)flag;</div><div class="line"><span class="keyword">@end</span></div></pre></td></tr></table></figure></p>
 <p><code>CAAnimationDelegate</code>在iOS 10 SDK中作为<strong>Protocol</strong>需要被类实现：<br><figure class="highlight objc"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="class"><span class="keyword">@protocol</span> <span class="title">CAAnimationDelegate</span> &lt;<span class="title">NSObject</span>&gt;</span></div><div class="line"><span class="keyword">@optional</span></div><div class="line">- (<span class="keyword">void</span>)animationDidStart:(<span class="built_in">CAAnimation</span> *)anim;</div><div class="line">- (<span class="keyword">void</span>)animationDidStop:(<span class="built_in">CAAnimation</span> *)anim finished:(<span class="built_in">BOOL</span>)flag;</div><div class="line"><span class="keyword">@end</span></div></pre></td></tr></table></figure></p>
 <p>如果要兼容XCode 7 和XCode 8，则可以通过判断SDK版本来实现：<br><figure class="highlight objc"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="meta">#if __IPHONE_OS_VERSION_MAX_ALLOWED &gt;= 100000</span></div><div class="line"><span class="class"><span class="keyword">@interface</span> <span class="title">SomeClass</span> &lt;<span class="title">AnyProtocal</span>, <span class="title">CAAnimationDelegate</span>&gt;</span></div><div class="line"><span class="meta">#else</span></div><div class="line"><span class="class"><span class="keyword">@interface</span> <span class="title">SomeClass</span> &lt;<span class="title">AnyProtocal</span>&gt;</span></div><div class="line"><span class="meta">#endif</span></div><div class="line"></div><div class="line">- (<span class="keyword">void</span>)anyMethod;</div><div class="line"><span class="keyword">@end</span></div></pre></td></tr></table></figure></p>

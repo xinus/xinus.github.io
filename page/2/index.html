@@ -142,6 +142,16 @@
 
 
 
+  <script type="text/javascript">
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "https://hm.baidu.com/hm.js?629caadb26ae4227c076e75b0f27e4fc";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
 
 
 
@@ -394,9 +404,7 @@
 
       
         
-          <h3 id="Git分支管理是一门艺术"><a href="#Git分支管理是一门艺术" class="headerlink" title="Git分支管理是一门艺术"></a>Git分支管理是一门艺术</h3><p>最近在看一个开源项目<code>Beego Framework</code>的<a href="http://beego.me/docs/install/#beego-%E7%9A%84-git-%E5%88%86%E6%94%AF">介绍</a>，其中在其项目的分支说明中看到了这张图片，然后又进一步查到了原文出处。拜读原文之后，觉得这个Git的分支管理模型非常棒。</p>
-<p>之前自己对git分支的管理上，为了方便任务分配是按开发人员来划分的。但对版本迭代来驱动产品的开发，显然这个模型更合适。而且，原作者用图例和文字详细的描述了这个模型，简直棒极了。</p>
-<p>整个模型可以用一个图来表示：<br><img src="/images/git-model/git-model@2x.png" alt="image"><br>
+          <h3 id="Git分支管理是一门艺术"><a href="#Git分支管理是一门艺术" class="headerlink" title="Git分支管理是一门艺术"></a>Git分支管理是一门艺术</h3><p>最近在看一个开源项目<code>Beego Framework</code>的<a href="http://beego.me/docs/install/#beego-%E7%9A%84-git-%E5%88%86%E6%94%AF">介绍</a>，其中在其项目的分支说明中看到了这张图片，然后又进一步查到了原文出处。拜读原文之后，觉得这个Git的分支管理模型非常棒。<br>
           <!--noindex-->
           <div class="post-button text-center">
             <a class="btn" href="/2016/09/a-successful-git-branching-model/#more" rel="contents">
@@ -543,13 +551,15 @@
 
       
         
-          
-            <h3 id="初遇"><a href="#初遇" class="headerlink" title="初遇"></a>初遇</h3><p>2013年秋， Apple推出了iOS 7，算得上iOS历史上一次最大的变革。完全重新设计的UI，引领了后面的<code>扁平化</code>的潮流。</p>
-<p>还记得iOS 7正式推出后，如何让App适配iOS7和之前的iOS两种截然不同的外观，煞费苦心。</p>
-<h3 id="再见"><a href="#再见" class="headerlink" title="再见"></a>再见</h3><p>XCode 8 Beta版本中，已经无法选择7.x为最低的支持版本了，而且尝试使用iOS7.x的设备调试时，也会弹出提示，不再支持iOS 8之前的设备。随着9月份iOS 10正式版本的推出，XCode 8也会正式推出，作为一个开发者可以预见到，主流的App都会逐步升级，抛弃iOS7。</p>
-<p>再见，iOS 7。</p>
-
-          
+          <h3 id="初遇"><a href="#初遇" class="headerlink" title="初遇"></a>初遇</h3><p>2013年秋， Apple推出了iOS 7，算得上iOS历史上一次最大的变革。完全重新设计的UI，引领了后面的<code>扁平化</code>的潮流。</p>
+<p>还记得iOS 7正式推出后，如何让App适配iOS7和之前的iOS两种截然不同的外观，煞费苦心。<br>
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2016/08/goodbye-ios7/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
@@ -837,21 +847,19 @@
 
       
         
-          
-            <h3 id="升级XCode-8-beta"><a href="#升级XCode-8-beta" class="headerlink" title="升级XCode 8 beta"></a>升级XCode 8 beta</h3><p>XCode 8 Beta使用了iOS 10 SDK为默认的SDK；目前的工程，使用XCode 8 Beta编译时，提示了一些警告信息。</p>
+          <h3 id="升级XCode-8-beta"><a href="#升级XCode-8-beta" class="headerlink" title="升级XCode 8 beta"></a>升级XCode 8 beta</h3><p>XCode 8 Beta使用了iOS 10 SDK为默认的SDK；目前的工程，使用XCode 8 Beta编译时，提示了一些警告信息。</p>
 <h3 id="Method-possibly-missing-a-super-awakeFromNib-call"><a href="#Method-possibly-missing-a-super-awakeFromNib-call" class="headerlink" title="Method possibly missing a [super awakeFromNib] call"></a>Method possibly missing a [super awakeFromNib] call</h3><p>使用XCode 7时并没有报出这样的警告，其实故名思议，需要在<code>awakeFromNib</code>方法里面调用其父类的方法。<br><figure class="highlight objc"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">- (<span class="keyword">void</span>)awakeFromNib &#123;</div><div class="line">  [<span class="keyword">super</span> awakeFromNib];</div><div class="line">  <span class="comment">// Initialization code</span></div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
 <p>关于这点，Apple的官方文档中也有说明:</p>
 <blockquote>
 <p>You must call the super implementation of awakeFromNib to give parent classes the opportunity to perform any additional initialization they require. Although the default implementation of this method does nothing, many UIKit classes provide non-empty implementations. You may call the super implementation at any point during your own awakeFromNib method.</p>
 </blockquote>
-<h3 id="CAAnimationDelegate"><a href="#CAAnimationDelegate" class="headerlink" title="CAAnimationDelegate"></a>CAAnimationDelegate</h3><p><code>CAAnimationDelegate</code>在iOS 9 SDK及之前的SDK中，作为NSObject的<strong>Category</strong>：<br><figure class="highlight objc"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="class"><span class="keyword">@interface</span> <span class="title">NSObject</span> (<span class="title">CAAnimationDelegate</span>)</span></div><div class="line">- (<span class="keyword">void</span>)animationDidStart:(<span class="built_in">CAAnimation</span> *)anim;</div><div class="line">- (<span class="keyword">void</span>)animationDidStop:(<span class="built_in">CAAnimation</span> *)anim finished:(<span class="built_in">BOOL</span>)flag;</div><div class="line"><span class="keyword">@end</span></div></pre></td></tr></table></figure></p>
-<p><code>CAAnimationDelegate</code>在iOS 10 SDK中作为<strong>Protocol</strong>需要被类实现：<br><figure class="highlight objc"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="class"><span class="keyword">@protocol</span> <span class="title">CAAnimationDelegate</span> &lt;<span class="title">NSObject</span>&gt;</span></div><div class="line"><span class="keyword">@optional</span></div><div class="line">- (<span class="keyword">void</span>)animationDidStart:(<span class="built_in">CAAnimation</span> *)anim;</div><div class="line">- (<span class="keyword">void</span>)animationDidStop:(<span class="built_in">CAAnimation</span> *)anim finished:(<span class="built_in">BOOL</span>)flag;</div><div class="line"><span class="keyword">@end</span></div></pre></td></tr></table></figure></p>
-<p>如果要兼容XCode 7 和XCode 8，则可以通过判断SDK版本来实现：<br><figure class="highlight objc"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="meta">#if __IPHONE_OS_VERSION_MAX_ALLOWED &gt;= 100000</span></div><div class="line"><span class="class"><span class="keyword">@interface</span> <span class="title">SomeClass</span> &lt;<span class="title">AnyProtocal</span>, <span class="title">CAAnimationDelegate</span>&gt;</span></div><div class="line"><span class="meta">#else</span></div><div class="line"><span class="class"><span class="keyword">@interface</span> <span class="title">SomeClass</span> &lt;<span class="title">AnyProtocal</span>&gt;</span></div><div class="line"><span class="meta">#endif</span></div><div class="line"></div><div class="line">- (<span class="keyword">void</span>)anyMethod;</div><div class="line"><span class="keyword">@end</span></div></pre></td></tr></table></figure></p>
-<h3 id="CALayerDelegate"><a href="#CALayerDelegate" class="headerlink" title="CALayerDelegate"></a>CALayerDelegate</h3><p>与前面提到的<code>CAAnimationDelegate</code>类似，<code>CALayerDelegate</code>在iOS 9 SDK及之前的SDK中，作为NSObject的<strong>Category</strong>：<br><figure class="highlight objc"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="class"><span class="keyword">@interface</span> <span class="title">NSObject</span> (<span class="title">CALayerDelegate</span>)</span></div><div class="line">- (<span class="keyword">void</span>)displayLayer:(<span class="built_in">CALayer</span> *)layer;</div><div class="line">- (<span class="keyword">void</span>)drawLayer:(<span class="built_in">CALayer</span> *)layer inContext:(<span class="built_in">CGContextRef</span>)ctx;</div><div class="line">- (<span class="keyword">void</span>)layoutSublayersOfLayer:(<span class="built_in">CALayer</span> *)layer;</div><div class="line">- (<span class="keyword">nullable</span> <span class="keyword">id</span>&lt;<span class="built_in">CAAction</span>&gt;)actionForLayer:(<span class="built_in">CALayer</span> *)layer forKey:(<span class="built_in">NSString</span> *)event;</div><div class="line"><span class="keyword">@end</span></div></pre></td></tr></table></figure></p>
-<p>iOS 10 SDK中作为<strong>Protocol</strong>需要被类实现：<br><figure class="highlight objc"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="class"><span class="keyword">@protocol</span> <span class="title">CALayerDelegate</span> &lt;<span class="title">NSObject</span>&gt;</span></div><div class="line"><span class="keyword">@optional</span></div><div class="line">- (<span class="keyword">void</span>)displayLayer:(<span class="built_in">CALayer</span> *)layer;</div><div class="line">- (<span class="keyword">void</span>)drawLayer:(<span class="built_in">CALayer</span> *)layer inContext:(<span class="built_in">CGContextRef</span>)ctx;</div><div class="line">- (<span class="keyword">void</span>)layerWillDraw:(<span class="built_in">CALayer</span> *)layer <span class="built_in">CA_AVAILABLE_STARTING</span> (<span class="number">10.12</span>, <span class="number">10.0</span>, <span class="number">10.0</span>, <span class="number">3.0</span>);</div><div class="line">- (<span class="keyword">void</span>)layoutSublayersOfLayer:(<span class="built_in">CALayer</span> *)layer;</div><div class="line">- (<span class="keyword">nullable</span> <span class="keyword">id</span>&lt;<span class="built_in">CAAction</span>&gt;)actionForLayer:(<span class="built_in">CALayer</span> *)layer forKey:(<span class="built_in">NSString</span> *)event;</div><div class="line"><span class="keyword">@end</span></div></pre></td></tr></table></figure></p>
-<p>如果要兼容XCode 7 和XCode 8，则可以通过判断SDK版本来实现，同<code>CAAnimationDelegate</code>。</p>
-
-          
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2016/08/ios10-warnings/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>

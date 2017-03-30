@@ -95,7 +95,7 @@
 <meta property="og:url" content="http://xinus.wang/2012/10/nsdateformatter-intro/index.html">
 <meta property="og:site_name" content="心有思">
 <meta property="og:description" content="前言iOS开发中NSDateFormatter是一个很常用的类，用于格式化NSDate对象，支持本地化的信息。与时间相关的功能还可能会用到NSDateComponents类和NSCalendar类等。本文主要列出NSDateFormatter常见用法。NSDate对象包含两个部分，日期（Date）和时间（Time）。格式化的时间字符串主要也是针对日期和时间的。[以下代码中开启了ARC，所以没有re">
-<meta property="og:updated_time" content="2017-03-21T05:55:36.000Z">
+<meta property="og:updated_time" content="2017-03-30T07:08:00.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="NSDateFormatter格式详细列表一览">
 <meta name="twitter:description" content="前言iOS开发中NSDateFormatter是一个很常用的类，用于格式化NSDate对象，支持本地化的信息。与时间相关的功能还可能会用到NSDateComponents类和NSCalendar类等。本文主要列出NSDateFormatter常见用法。NSDate对象包含两个部分，日期（Date）和时间（Time）。格式化的时间字符串主要也是针对日期和时间的。[以下代码中开启了ARC，所以没有re">
@@ -142,6 +142,16 @@
 
 
 
+
+  <script type="text/javascript">
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "https://hm.baidu.com/hm.js?629caadb26ae4227c076e75b0f27e4fc";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
 
 
 
@@ -399,7 +409,7 @@
       
 
       
-        <h3 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h3><p>iOS开发中NSDateFormatter是一个很常用的类，用于格式化NSDate对象，支持本地化的信息。与时间相关的功能还可能会用到NSDateComponents类和NSCalendar类等。本文主要列出NSDateFormatter常见用法。<br>NSDate对象包含两个部分，日期（Date）和时间（Time）。格式化的时间字符串主要也是针对日期和时间的。[以下代码中开启了ARC，所以没有release。]</p>
+        <h3 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h3><p>iOS开发中NSDateFormatter是一个很常用的类，用于格式化NSDate对象，支持本地化的信息。与时间相关的功能还可能会用到NSDateComponents类和NSCalendar类等。本文主要列出NSDateFormatter常见用法。<br>NSDate对象包含两个部分，日期（Date）和时间（Time）。格式化的时间字符串主要也是针对日期和时间的。[以下代码中开启了ARC，所以没有release。]<br><a id="more"></a></p>
 <h3 id="基础用法"><a href="#基础用法" class="headerlink" title="基础用法"></a>基础用法</h3><figure class="highlight objc"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">NSDate</span>* now = [<span class="built_in">NSDate</span> date];</div><div class="line"><span class="built_in">NSDateFormatter</span>* fmt = [[<span class="built_in">NSDateFormatter</span> alloc] init];</div><div class="line">fmt.dateStyle = kCFDateFormatterShortStyle;</div><div class="line">fmt.timeStyle = kCFDateFormatterShortStyle;</div><div class="line">fmt.locale = [[<span class="built_in">NSLocale</span> alloc] initWithLocaleIdentifier:<span class="string">@"en_US"</span>];</div><div class="line"><span class="built_in">NSString</span>* dateString = [fmt stringFromDate:now];</div><div class="line"><span class="built_in">NSLog</span>(<span class="string">@"%@"</span>, dateString);</div></pre></td></tr></table></figure>
 <p>打印输出：10/29/12, 2:27 PM<br>这使用的系统提供的格式化字符串，通过 fmt.dateStyle 和 fmt.timeStyle 进行的设置。实例中使用的参数是 kCFDateFormatterShortStyle，此外还有：</p>
 <figure class="highlight objc"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">typedef</span> <span class="built_in">CF_ENUM</span>(<span class="built_in">CFIndex</span>, <span class="built_in">CFDateFormatterStyle</span>) &#123;    <span class="comment">// date and time format styles</span></div><div class="line">    kCFDateFormatterNoStyle = <span class="number">0</span>,       <span class="comment">// 无输出</span></div><div class="line">    kCFDateFormatterShortStyle = <span class="number">1</span>,    <span class="comment">// 10/29/12, 2:27 PM</span></div><div class="line">    kCFDateFormatterMediumStyle = <span class="number">2</span>,   <span class="comment">// Oct 29, 2012, 2:36:59 PM</span></div><div class="line">    kCFDateFormatterLongStyle = <span class="number">3</span>,     <span class="comment">// October 29, 2012, 2:38:46 PM GMT+08:00</span></div><div class="line">    kCFDateFormatterFullStyle = <span class="number">4</span>      <span class="comment">// Monday, October 29, 2012, 2:39:56 PM China Standard Time</span></div><div class="line">&#125;;</div></pre></td></tr></table></figure>

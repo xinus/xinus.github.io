@@ -4,8 +4,214 @@
 
     
   <url>
+    <loc>http://xinus.wang/2016/08/ios10-warnings/</loc>
+    <lastmod>2017-03-30T07:10:54.000Z</lastmod>
+    <data>
+        <display>
+        <title>使用iOS 10 SDK编译的警告</title>
+        <pubTime>2016-08-17T07:34:23.000Z</pubTime>
+        
+        <tag>warnings</tag>
+         
+        <tag>ios10</tag>
+         
+         
+           
+             
+              <breadCrumb title="ios" url="http://xinus.wang/categories/ios/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://xinus.wang/2016/06/ios10-beta-1/</loc>
+    <lastmod>2017-03-30T07:10:36.000Z</lastmod>
+    <data>
+        <display>
+        <title>iOS 10 Developer Beta 1</title>
+        <pubTime>2016-06-19T13:17:14.000Z</pubTime>
+        
+        <tag>ios10</tag>
+         
+         
+           
+             
+              <breadCrumb title="ios" url="http://xinus.wang/categories/ios/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://xinus.wang/2016/09/a-successful-git-branching-model/</loc>
+    <lastmod>2017-03-30T07:09:42.000Z</lastmod>
+    <data>
+        <display>
+        <title>一个成功的Git分支管理模型</title>
+        <pubTime>2016-09-01T10:02:11.000Z</pubTime>
+        
+        <tag>git</tag>
+         
+         
+           
+             
+              <breadCrumb title="git" url="http://xinus.wang/categories/git/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://xinus.wang/2017/01/electron-start/</loc>
+    <lastmod>2017-03-30T07:09:02.000Z</lastmod>
+    <data>
+        <display>
+        <title>Electron入坑笔记</title>
+        <pubTime>2017-01-13T09:27:24.000Z</pubTime>
+        
+        <tag>electron</tag>
+         
+         
+           
+             
+              <breadCrumb title="webapp" url="http://xinus.wang/categories/webapp/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://xinus.wang/2016/08/goodbye-ios7/</loc>
+    <lastmod>2017-03-30T07:08:40.000Z</lastmod>
+    <data>
+        <display>
+        <title>再见，iOS 7</title>
+        <pubTime>2016-08-19T10:23:55.000Z</pubTime>
+        
+        <tag>ios7</tag>
+         
+         
+           
+             
+              <breadCrumb title="ios" url="http://xinus.wang/categories/ios/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://xinus.wang/2016/04/weibo-ios-sdk-issue/</loc>
+    <lastmod>2017-03-30T07:08:32.000Z</lastmod>
+    <data>
+        <display>
+        <title>WeiboSDK授权登录的问题</title>
+        <pubTime>2016-04-13T06:51:32.000Z</pubTime>
+        
+        <tag>weibo</tag>
+         
+        <tag>authorization</tag>
+         
+         
+           
+             
+              <breadCrumb title="ios" url="http://xinus.wang/categories/ios/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://xinus.wang/2013/01/nsstring-compare-trap/</loc>
+    <lastmod>2017-03-30T07:08:19.000Z</lastmod>
+    <data>
+        <display>
+        <title>iOS开发陷阱之NSString - compare</title>
+        <pubTime>2013-01-26T07:42:11.000Z</pubTime>
+        
+        <tag>nsstring</tag>
+         
+         
+           
+             
+              <breadCrumb title="ios" url="http://xinus.wang/categories/ios/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://xinus.wang/2012/10/nsdateformatter-intro/</loc>
+    <lastmod>2017-03-30T07:08:00.000Z</lastmod>
+    <data>
+        <display>
+        <title>NSDateFormatter格式详细列表一览</title>
+        <pubTime>2012-10-29T08:13:21.000Z</pubTime>
+        
+        <tag>nsdateformatter</tag>
+         
+         
+           
+             
+              <breadCrumb title="ios" url="http://xinus.wang/categories/ios/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://xinus.wang/2017/03/otool-intro/</loc>
+    <lastmod>2017-03-30T07:06:55.000Z</lastmod>
+    <data>
+        <display>
+        <title>macOS下面查看执行文件依赖信息</title>
+        <pubTime>2017-03-06T06:49:39.000Z</pubTime>
+        
+        <tag>otool</tag>
+         
+         
+           
+             
+              <breadCrumb title="macos" url="http://xinus.wang/categories/macos/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://xinus.wang/2017/01/mutablecopy-array-dict-bad/</loc>
+    <lastmod>2017-03-30T07:06:30.000Z</lastmod>
+    <data>
+        <display>
+        <title>糟糕的 [@[] mutableCopy] 和 [@{} mutableCopy]</title>
+        <pubTime>2017-01-11T08:32:41.000Z</pubTime>
+        
+        <tag>objc</tag>
+         
+        <tag>mutablecopy</tag>
+         
+         
+           
+             
+              <breadCrumb title="ios" url="http://xinus.wang/categories/ios/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
     <loc>http://xinus.wang/2017/03/study-webrtc-setup/</loc>
-    <lastmod>2017-03-30T03:58:56.000Z</lastmod>
+    <lastmod>2017-03-30T07:06:20.000Z</lastmod>
     <data>
         <display>
         <title>WebRTC学习笔记（1）- Win/Linux/macOS环境编译</title>
@@ -21,28 +227,6 @@
            
              
               <breadCrumb title="webrtc" url="http://xinus.wang/categories/webrtc/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://xinus.wang/2016/08/ios10-warnings/</loc>
-    <lastmod>2017-03-22T03:46:58.000Z</lastmod>
-    <data>
-        <display>
-        <title>使用iOS 10 SDK编译的警告</title>
-        <pubTime>2016-08-17T07:34:23.000Z</pubTime>
-        
-        <tag>warnings</tag>
-         
-        <tag>ios10</tag>
-         
-         
-           
-             
-              <breadCrumb title="ios" url="http://xinus.wang/categories/ios/"/>
           
         </display>
     </data>
@@ -85,70 +269,6 @@
            
              
               <breadCrumb title="xcode" url="http://xinus.wang/categories/xcode/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://xinus.wang/2016/04/weibo-ios-sdk-issue/</loc>
-    <lastmod>2017-03-21T06:10:36.000Z</lastmod>
-    <data>
-        <display>
-        <title>WeiboSDK授权登录的问题</title>
-        <pubTime>2016-04-13T06:51:32.000Z</pubTime>
-        
-        <tag>weibo</tag>
-         
-        <tag>authorization</tag>
-         
-         
-           
-             
-              <breadCrumb title="ios" url="http://xinus.wang/categories/ios/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://xinus.wang/2017/03/otool-intro/</loc>
-    <lastmod>2017-03-21T06:09:47.000Z</lastmod>
-    <data>
-        <display>
-        <title>macOS下面查看执行文件依赖信息</title>
-        <pubTime>2017-03-06T06:49:39.000Z</pubTime>
-        
-        <tag>otool</tag>
-         
-         
-           
-             
-              <breadCrumb title="macos" url="http://xinus.wang/categories/macos/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://xinus.wang/2017/01/mutablecopy-array-dict-bad/</loc>
-    <lastmod>2017-03-21T06:09:39.000Z</lastmod>
-    <data>
-        <display>
-        <title>糟糕的 [@[] mutableCopy] 和 [@{} mutableCopy]</title>
-        <pubTime>2017-01-11T08:32:41.000Z</pubTime>
-        
-        <tag>objc</tag>
-         
-        <tag>mutablecopy</tag>
-         
-         
-           
-             
-              <breadCrumb title="ios" url="http://xinus.wang/categories/ios/"/>
           
         </display>
     </data>
@@ -258,26 +378,6 @@
 
     
   <url>
-    <loc>http://xinus.wang/2017/01/electron-start/</loc>
-    <lastmod>2017-03-21T06:08:16.000Z</lastmod>
-    <data>
-        <display>
-        <title>Electron入坑笔记</title>
-        <pubTime>2017-01-13T09:27:24.000Z</pubTime>
-        
-        <tag>electron</tag>
-         
-         
-           
-             
-              <breadCrumb title="webapp" url="http://xinus.wang/categories/webapp/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
     <loc>http://xinus.wang/2017/01/crash-ios8-cgpathaddlinetopoint/</loc>
     <lastmod>2017-03-21T06:08:10.000Z</lastmod>
     <data>
@@ -330,46 +430,6 @@
         <tag>codefragments</tag>
          
         <tag>objc</tag>
-         
-         
-           
-             
-              <breadCrumb title="ios" url="http://xinus.wang/categories/ios/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://xinus.wang/2013/01/nsstring-compare-trap/</loc>
-    <lastmod>2017-03-21T06:00:50.000Z</lastmod>
-    <data>
-        <display>
-        <title>iOS开发陷阱之NSString - compare</title>
-        <pubTime>2013-01-26T07:42:11.000Z</pubTime>
-        
-        <tag>nsstring</tag>
-         
-         
-           
-             
-              <breadCrumb title="ios" url="http://xinus.wang/categories/ios/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://xinus.wang/2012/10/nsdateformatter-intro/</loc>
-    <lastmod>2017-03-21T05:55:36.000Z</lastmod>
-    <data>
-        <display>
-        <title>NSDateFormatter格式详细列表一览</title>
-        <pubTime>2012-10-29T08:13:21.000Z</pubTime>
-        
-        <tag>nsdateformatter</tag>
          
          
            
@@ -442,26 +502,6 @@
 
     
   <url>
-    <loc>http://xinus.wang/2016/09/a-successful-git-branching-model/</loc>
-    <lastmod>2017-03-21T05:28:09.000Z</lastmod>
-    <data>
-        <display>
-        <title>一个成功的Git分支管理模型</title>
-        <pubTime>2016-09-01T10:02:11.000Z</pubTime>
-        
-        <tag>git</tag>
-         
-         
-           
-             
-              <breadCrumb title="git" url="http://xinus.wang/categories/git/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
     <loc>http://xinus.wang/2016/04/sem-ver-intro/</loc>
     <lastmod>2017-03-21T05:27:17.000Z</lastmod>
     <data>
@@ -502,26 +542,6 @@
 
     
   <url>
-    <loc>http://xinus.wang/2016/06/ios10-beta-1/</loc>
-    <lastmod>2017-03-21T05:24:56.000Z</lastmod>
-    <data>
-        <display>
-        <title>iOS 10 Developer Beta 1</title>
-        <pubTime>2016-06-19T13:17:14.000Z</pubTime>
-        
-        <tag>ios10</tag>
-         
-         
-           
-             
-              <breadCrumb title="ios" url="http://xinus.wang/categories/ios/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
     <loc>http://xinus.wang/2016/04/hello-world/</loc>
     <lastmod>2017-03-21T05:24:38.000Z</lastmod>
     <data>
@@ -533,26 +553,6 @@
            
              
               <breadCrumb title="notes" url="http://xinus.wang/categories/notes/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://xinus.wang/2016/08/goodbye-ios7/</loc>
-    <lastmod>2017-03-21T05:24:08.000Z</lastmod>
-    <data>
-        <display>
-        <title>再见，iOS 7</title>
-        <pubTime>2016-08-19T10:23:55.000Z</pubTime>
-        
-        <tag>ios7</tag>
-         
-         
-           
-             
-              <breadCrumb title="ios" url="http://xinus.wang/categories/ios/"/>
           
         </display>
     </data>

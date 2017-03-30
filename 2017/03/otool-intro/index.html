@@ -95,7 +95,7 @@
 <meta property="og:url" content="http://xinus.wang/2017/03/otool-intro/index.html">
 <meta property="og:site_name" content="心有思">
 <meta property="og:description" content="查看动态链接库信息通过otool查看：12345678$ otool -L CppRestCppRest:	/usr/local/opt/cpprestsdk/lib/libcpprest.2.9.dylib (compatibility version 2.9.0, current version 0.0.0)	/usr/local/opt/openssl/lib/libssl.1.0.0.dy">
-<meta property="og:updated_time" content="2017-03-21T06:09:47.000Z">
+<meta property="og:updated_time" content="2017-03-30T07:06:55.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="macOS下面查看执行文件依赖信息">
 <meta name="twitter:description" content="查看动态链接库信息通过otool查看：12345678$ otool -L CppRestCppRest:	/usr/local/opt/cpprestsdk/lib/libcpprest.2.9.dylib (compatibility version 2.9.0, current version 0.0.0)	/usr/local/opt/openssl/lib/libssl.1.0.0.dy">
@@ -142,6 +142,16 @@
 
 
 
+
+  <script type="text/javascript">
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "https://hm.baidu.com/hm.js?629caadb26ae4227c076e75b0f27e4fc";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
 
 
 
@@ -400,6 +410,7 @@
 
       
         <h3 id="查看动态链接库信息"><a href="#查看动态链接库信息" class="headerlink" title="查看动态链接库信息"></a>查看动态链接库信息</h3><p>通过otool查看：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">$ otool -L CppRest</div><div class="line">CppRest:</div><div class="line">	/usr/local/opt/cpprestsdk/lib/libcpprest.2.9.dylib (compatibility version 2.9.0, current version 0.0.0)</div><div class="line">	/usr/local/opt/openssl/lib/libssl.1.0.0.dylib (compatibility version 1.0.0, current version 1.0.0)</div><div class="line">	/usr/local/opt/openssl/lib/libcrypto.1.0.0.dylib (compatibility version 1.0.0, current version 1.0.0)</div><div class="line">	/usr/local/opt/boost/lib/libboost_system.dylib (compatibility version 0.0.0, current version 0.0.0)</div><div class="line">	/usr/lib/libc++.1.dylib (compatibility version 1.0.0, current version 307.4.0)</div><div class="line">	/usr/lib/libSystem.B.dylib (compatibility version 1.0.0, current version 1238.0.0)</div></pre></td></tr></table></figure></p>
+<a id="more"></a>
 <h3 id="查看符号表"><a href="#查看符号表" class="headerlink" title="查看符号表"></a>查看符号表</h3><p>通过nm查看:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div></pre></td><td class="code"><pre><div class="line">nm CppRest</div><div class="line">000000010000a21c s GCC_except_table138</div><div class="line">000000010000a234 s GCC_except_table148</div><div class="line">000000010000a254 s GCC_except_table156</div><div class="line">000000010000a280 s GCC_except_table159</div><div class="line">000000010000a2bc s GCC_except_table166</div><div class="line">...</div><div class="line">0000000100001370 t __ZN5boost4asio5error16get_ssl_categoryEv</div><div class="line">00000001000012f0 t __ZN5boost4asio5error17get_misc_categoryEv</div><div class="line">00000001000011f0 t __ZN5boost4asio5error18get_netdb_categoryEv</div><div class="line">...</div><div class="line">0000000100009970 t ___cxx_global_var_init</div><div class="line">0000000100009990 t ___cxx_global_var_init.1</div><div class="line">0000000100009a90 t ___cxx_global_var_init.12</div><div class="line">0000000100009af0 t ___cxx_global_var_init.13</div><div class="line">0000000100009b50 t ___cxx_global_var_init.14</div><div class="line">0000000100009bb0 t ___cxx_global_var_init.15</div><div class="line">0000000100009c10 t ___cxx_global_var_init.16</div><div class="line">00000001000099b0 t ___cxx_global_var_init.2</div><div class="line">00000001000099d0 t ___cxx_global_var_init.3</div><div class="line">...</div></pre></td></tr></table></figure></p>
 
       

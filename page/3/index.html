@@ -142,6 +142,16 @@
 
 
 
+  <script type="text/javascript">
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "https://hm.baidu.com/hm.js?629caadb26ae4227c076e75b0f27e4fc";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
 
 
 
@@ -997,12 +1007,7 @@
       
         
           <h3 id="WeiboSDK授权登录的问题"><a href="#WeiboSDK授权登录的问题" class="headerlink" title="WeiboSDK授权登录的问题"></a>WeiboSDK授权登录的问题</h3><p>最近的一个项目里面，集成了WeiboSDK，主要是要用到OAuth授权登录。这个问题发现得比较早，但是一直没有出来。目前手上其他优先级高的任务都完成了，这个Bug自然需要解掉。</p>
-<p>先说说Bug的现象。App集成了Weibo的SDK，版本3.1.1，按照<a href="https://github.com/sinaweibosdk/weibo_ios_sdk">文档所列的要求</a>，完成的所有关联的配置，包括对iOS9的支持。</p>
-<ol>
-<li>iPhone上安装最新的Weibo客户端，并登录一个账号；</li>
-<li>在我们的App中（简称App）进入登录页面，点Weibo的图标，Weibo客户端会被调用至前台，出现授权页面；</li>
-<li>若该账号第一次授权，则一切正常；会正确的出现App的图标和相应的描述；点击确认按钮，完成授权并切回App；</li>
-<li>若账号以前授权过，授权页面会正常显示，但不需要用户点击确认按钮，自动授权完成，并切回App。
+<p>先说说Bug的现象。App集成了Weibo的SDK，版本3.1.1，按照<a href="https://github.com/sinaweibosdk/weibo_ios_sdk">文档所列的要求</a>，完成的所有关联的配置，包括对iOS9的支持。<br>
           <!--noindex-->
           <div class="post-button text-center">
             <a class="btn" href="/2016/04/weibo-ios-sdk-issue/#more" rel="contents">

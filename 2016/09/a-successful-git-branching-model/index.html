@@ -89,23 +89,17 @@
 
 
 
-<meta name="description" content="Git分支管理是一门艺术最近在看一个开源项目Beego Framework的介绍，其中在其项目的分支说明中看到了这张图片，然后又进一步查到了原文出处。拜读原文之后，觉得这个Git的分支管理模型非常棒。
-之前自己对git分支的管理上，为了方便任务分配是按开发人员来划分的。但对版本迭代来驱动产品的开发，显然这个模型更合适。而且，原作者用图例和文字详细的描述了这个模型，简直棒极了。
-整个模型可以用一个图">
+<meta name="description" content="Git分支管理是一门艺术最近在看一个开源项目Beego Framework的介绍，其中在其项目的分支说明中看到了这张图片，然后又进一步查到了原文出处。拜读原文之后，觉得这个Git的分支管理模型非常棒。">
 <meta property="og:type" content="article">
 <meta property="og:title" content="一个成功的Git分支管理模型">
 <meta property="og:url" content="http://xinus.wang/2016/09/a-successful-git-branching-model/index.html">
 <meta property="og:site_name" content="心有思">
-<meta property="og:description" content="Git分支管理是一门艺术最近在看一个开源项目Beego Framework的介绍，其中在其项目的分支说明中看到了这张图片，然后又进一步查到了原文出处。拜读原文之后，觉得这个Git的分支管理模型非常棒。
-之前自己对git分支的管理上，为了方便任务分配是按开发人员来划分的。但对版本迭代来驱动产品的开发，显然这个模型更合适。而且，原作者用图例和文字详细的描述了这个模型，简直棒极了。
-整个模型可以用一个图">
+<meta property="og:description" content="Git分支管理是一门艺术最近在看一个开源项目Beego Framework的介绍，其中在其项目的分支说明中看到了这张图片，然后又进一步查到了原文出处。拜读原文之后，觉得这个Git的分支管理模型非常棒。">
 <meta property="og:image" content="http://xinus.wang/images/git-model/git-model@2x.png">
-<meta property="og:updated_time" content="2017-03-21T05:28:09.000Z">
+<meta property="og:updated_time" content="2017-03-30T07:09:42.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="一个成功的Git分支管理模型">
-<meta name="twitter:description" content="Git分支管理是一门艺术最近在看一个开源项目Beego Framework的介绍，其中在其项目的分支说明中看到了这张图片，然后又进一步查到了原文出处。拜读原文之后，觉得这个Git的分支管理模型非常棒。
-之前自己对git分支的管理上，为了方便任务分配是按开发人员来划分的。但对版本迭代来驱动产品的开发，显然这个模型更合适。而且，原作者用图例和文字详细的描述了这个模型，简直棒极了。
-整个模型可以用一个图">
+<meta name="twitter:description" content="Git分支管理是一门艺术最近在看一个开源项目Beego Framework的介绍，其中在其项目的分支说明中看到了这张图片，然后又进一步查到了原文出处。拜读原文之后，觉得这个Git的分支管理模型非常棒。">
 <meta name="twitter:image" content="http://xinus.wang/images/git-model/git-model@2x.png">
 
 
@@ -150,6 +144,16 @@
 
 
 
+
+  <script type="text/javascript">
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "https://hm.baidu.com/hm.js?629caadb26ae4227c076e75b0f27e4fc";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
 
 
 
@@ -407,9 +411,9 @@
       
 
       
-        <h3 id="Git分支管理是一门艺术"><a href="#Git分支管理是一门艺术" class="headerlink" title="Git分支管理是一门艺术"></a>Git分支管理是一门艺术</h3><p>最近在看一个开源项目<code>Beego Framework</code>的<a href="http://beego.me/docs/install/#beego-%E7%9A%84-git-%E5%88%86%E6%94%AF" target="_blank" rel="external">介绍</a>，其中在其项目的分支说明中看到了这张图片，然后又进一步查到了原文出处。拜读原文之后，觉得这个Git的分支管理模型非常棒。</p>
+        <h3 id="Git分支管理是一门艺术"><a href="#Git分支管理是一门艺术" class="headerlink" title="Git分支管理是一门艺术"></a>Git分支管理是一门艺术</h3><p>最近在看一个开源项目<code>Beego Framework</code>的<a href="http://beego.me/docs/install/#beego-%E7%9A%84-git-%E5%88%86%E6%94%AF" target="_blank" rel="external">介绍</a>，其中在其项目的分支说明中看到了这张图片，然后又进一步查到了原文出处。拜读原文之后，觉得这个Git的分支管理模型非常棒。<br><a id="more"></a></p>
 <p>之前自己对git分支的管理上，为了方便任务分配是按开发人员来划分的。但对版本迭代来驱动产品的开发，显然这个模型更合适。而且，原作者用图例和文字详细的描述了这个模型，简直棒极了。</p>
-<p>整个模型可以用一个图来表示：<br><img src="/images/git-model/git-model@2x.png" alt="image"><br><a id="more"></a><br>更多的内容，请阅读下方的<code>参考文档</code>。</p>
+<p>整个模型可以用一个图来表示：<br><img src="/images/git-model/git-model@2x.png" alt="image"><br><!-- more --><br>更多的内容，请阅读下方的<code>参考文档</code>。</p>
 <h3 id="参考文档"><a href="#参考文档" class="headerlink" title="参考文档"></a>参考文档</h3><ol>
 <li><a href="http://nvie.com/posts/a-successful-git-branching-model/" target="_blank" rel="external">A successful Git branching model</a> (by <code>Vincent Driessen</code>)</li>
 <li><a href="http://kb.cnblogs.com/page/132209/" target="_blank" rel="external">GIT分支管理是一门艺术</a></li>
