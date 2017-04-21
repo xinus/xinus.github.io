@@ -91,23 +91,20 @@
 
 <meta name="description" content="准备工作WebRTC属于Chromium项目的子项目，本身可以独立编译，支持的平台包括Windows/Linux/macOS/Android/iOS等。项目本身是C++, 编译脚本也会用到Python。而项目代码托管于Google的服务器上，也就造成国内想要获取源代码，需通过科学上网的方式。所以，一些前置条件必不可少。
 环境准备
-Win7 64位及以上，笔者用的Win10 64位；
-macOS；">
+Win7 64位及以上，笔者用的Win10 64位；DX SDK；">
 <meta property="og:type" content="article">
 <meta property="og:title" content="WebRTC学习笔记（1）- Win/Linux/macOS环境编译">
 <meta property="og:url" content="http://xinus.wang/2017/03/study-webrtc-setup/index.html">
 <meta property="og:site_name" content="心有思">
 <meta property="og:description" content="准备工作WebRTC属于Chromium项目的子项目，本身可以独立编译，支持的平台包括Windows/Linux/macOS/Android/iOS等。项目本身是C++, 编译脚本也会用到Python。而项目代码托管于Google的服务器上，也就造成国内想要获取源代码，需通过科学上网的方式。所以，一些前置条件必不可少。
 环境准备
-Win7 64位及以上，笔者用的Win10 64位；
-macOS；">
-<meta property="og:updated_time" content="2017-03-30T07:06:20.000Z">
+Win7 64位及以上，笔者用的Win10 64位；DX SDK；">
+<meta property="og:updated_time" content="2017-04-21T07:04:10.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="WebRTC学习笔记（1）- Win/Linux/macOS环境编译">
 <meta name="twitter:description" content="准备工作WebRTC属于Chromium项目的子项目，本身可以独立编译，支持的平台包括Windows/Linux/macOS/Android/iOS等。项目本身是C++, 编译脚本也会用到Python。而项目代码托管于Google的服务器上，也就造成国内想要获取源代码，需通过科学上网的方式。所以，一些前置条件必不可少。
 环境准备
-Win7 64位及以上，笔者用的Win10 64位；
-macOS；">
+Win7 64位及以上，笔者用的Win10 64位；DX SDK；">
 
 
 
@@ -420,7 +417,7 @@ macOS；">
       
         <h3 id="准备工作"><a href="#准备工作" class="headerlink" title="准备工作"></a>准备工作</h3><p>WebRTC属于Chromium项目的子项目，本身可以独立编译，支持的平台包括Windows/Linux/macOS/Android/iOS等。项目本身是C++, 编译脚本也会用到Python。而项目代码托管于Google的服务器上，也就造成国内想要获取源代码，需通过科学上网的方式。所以，一些前置条件必不可少。</p>
 <h4 id="环境准备"><a href="#环境准备" class="headerlink" title="环境准备"></a>环境准备</h4><ol>
-<li>Win7 64位及以上，笔者用的Win10 64位；</li>
+<li>Win7 64位及以上，笔者用的Win10 64位；DX SDK； Windows SDK；</li>
 <li>macOS；</li>
 <li>Ubuntu，一定要是Ubuntu，笔者最先用的Mint也被迫换成Ubuntu；<a id="more"></a>
 </li>
@@ -463,7 +460,22 @@ macOS；">
 <p>整个过程比上个环境需要的时间更长一些。</p>
 </li>
 </ol>
-<h4 id="Windows平台编译"><a href="#Windows平台编译" class="headerlink" title="Windows平台编译"></a>Windows平台编译</h4><h4 id="Linux平台编译"><a href="#Linux平台编译" class="headerlink" title="Linux平台编译"></a>Linux平台编译</h4><h4 id="macOS平台编译"><a href="#macOS平台编译" class="headerlink" title="macOS平台编译"></a>macOS平台编译</h4><h3 id="常见的问题"><a href="#常见的问题" class="headerlink" title="常见的问题"></a>常见的问题</h3>
+<h4 id="Windows平台编译"><a href="#Windows平台编译" class="headerlink" title="Windows平台编译"></a>Windows平台编译</h4><p>Windows 需先设置一些环境变量<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">$ set DEPOT_TOOLS_WIN_TOOLCHAIN=0</div><div class="line">$ cd src/</div><div class="line">$ gn gen out/debug</div></pre></td></tr></table></figure></p>
+<h4 id="Linux平台编译"><a href="#Linux平台编译" class="headerlink" title="Linux平台编译"></a>Linux平台编译</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">$ cd src/</div><div class="line">$ gn gen out/debug</div></pre></td></tr></table></figure>
+<h4 id="macOS平台编译"><a href="#macOS平台编译" class="headerlink" title="macOS平台编译"></a>macOS平台编译</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">$ cd src/</div><div class="line">$ gn gen out/debug</div></pre></td></tr></table></figure>
+<h3 id="常见的问题"><a href="#常见的问题" class="headerlink" title="常见的问题"></a>常见的问题</h3><ol>
+<li><p>Windows下面如何生成vs2015工程文件?</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">$ set DEPOT_TOOLS_WIN_TOOLCHAIN=0</div><div class="line">$ set GYP_GENERATORS=msvs</div><div class="line">$ set GYP_MSVS_VERSION=2015</div><div class="line">$ cd src/</div><div class="line">$ gn gen out/debug --ide=vs2015</div></pre></td></tr></table></figure>
+</li>
+<li><p>如何生成X86版本的库？</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ gn gen out/debug_x86 --args=&quot;target_os=\&quot;win\&quot; target_cpu=\&quot;x86\&quot;&quot; --ide=vs2015</div></pre></td></tr></table></figure>
+</li>
+<li><p>如何集成h264？<br>Webrtc默认未开启h264支持，需要gn时增加参数。而且webrtc使用ffmpeg解码h264，所以需要添加ffmpeg编译，但ffmpeg默认编译又不会带上h264的decoder，所以完整的选项如下：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ gn gen out/debug_x86 --args=&quot;target_os=\&quot;win\&quot; target_cpu=\&quot;x86\&quot; is_component_build=false rtc_enable_protobuf=true rtc_use_h264=true rtc_initialize_ffmpeg=true ffmpeg_branding=\&quot;Chrome\&quot; rtc_include_tests=false&quot; --ide=vs2015</div></pre></td></tr></table></figure>
+<p><code>rtc_include_tests=false</code> 表示不编译测试工程；</p>
+</li>
+</ol>
+
       
     </div>
 

@@ -2,6 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://xinus.wang/2017/03/study-webrtc-setup/</loc>
+    
+    <lastmod>2017-04-21T07:04:10.000Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://xinus.wang/2016/08/ios10-warnings/</loc>
     
     <lastmod>2017-03-30T07:10:54.000Z</lastmod>
@@ -68,13 +75,6 @@
     <loc>http://xinus.wang/2017/01/mutablecopy-array-dict-bad/</loc>
     
     <lastmod>2017-03-30T07:06:30.000Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://xinus.wang/2017/03/study-webrtc-setup/</loc>
-    
-    <lastmod>2017-03-30T07:06:20.000Z</lastmod>
     
   </url>
   
