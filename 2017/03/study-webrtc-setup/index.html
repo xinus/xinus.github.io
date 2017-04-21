@@ -99,7 +99,7 @@ Win7 64位及以上，笔者用的Win10 64位；DX SDK；">
 <meta property="og:description" content="准备工作WebRTC属于Chromium项目的子项目，本身可以独立编译，支持的平台包括Windows/Linux/macOS/Android/iOS等。项目本身是C++, 编译脚本也会用到Python。而项目代码托管于Google的服务器上，也就造成国内想要获取源代码，需通过科学上网的方式。所以，一些前置条件必不可少。
 环境准备
 Win7 64位及以上，笔者用的Win10 64位；DX SDK；">
-<meta property="og:updated_time" content="2017-04-21T07:04:10.000Z">
+<meta property="og:updated_time" content="2017-04-21T07:11:20.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="WebRTC学习笔记（1）- Win/Linux/macOS环境编译">
 <meta name="twitter:description" content="准备工作WebRTC属于Chromium项目的子项目，本身可以独立编译，支持的平台包括Windows/Linux/macOS/Android/iOS等。项目本身是C++, 编译脚本也会用到Python。而项目代码托管于Google的服务器上，也就造成国内想要获取源代码，需通过科学上网的方式。所以，一些前置条件必不可少。
@@ -465,7 +465,7 @@ Win7 64位及以上，笔者用的Win10 64位；DX SDK；">
 <h4 id="macOS平台编译"><a href="#macOS平台编译" class="headerlink" title="macOS平台编译"></a>macOS平台编译</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">$ cd src/</div><div class="line">$ gn gen out/debug</div></pre></td></tr></table></figure>
 <h3 id="常见的问题"><a href="#常见的问题" class="headerlink" title="常见的问题"></a>常见的问题</h3><ol>
 <li><p>Windows下面如何生成vs2015工程文件?</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">$ set DEPOT_TOOLS_WIN_TOOLCHAIN=0</div><div class="line">$ set GYP_GENERATORS=msvs</div><div class="line">$ set GYP_MSVS_VERSION=2015</div><div class="line">$ cd src/</div><div class="line">$ gn gen out/debug --ide=vs2015</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">$ set DEPOT_TOOLS_WIN_TOOLCHAIN=0</div><div class="line">$ set GYP_GENERATORS=msvs</div><div class="line">$ set GYP_MSVS_VERSION=2015</div><div class="line">$ cd src/</div><div class="line">$ gn gen out/debug --ide=vs2015</div><div class="line">$ ninja -C out/debug</div></pre></td></tr></table></figure>
 </li>
 <li><p>如何生成X86版本的库？</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ gn gen out/debug_x86 --args=&quot;target_os=\&quot;win\&quot; target_cpu=\&quot;x86\&quot;&quot; --ide=vs2015</div></pre></td></tr></table></figure>
