@@ -89,31 +89,31 @@
 
 
 
-<meta name="description" content="先说说大概的情况我做了一个ConnectingView，用来显示一个连接中的动画。动画中有三部分，手机图标、服务器图标、循环移动的虚线。大致的示意如下：
+<meta name="description" content="动画问题及原因我做了一个ConnectingView，用来显示一个连接中的动画。动画中有三部分，手机图标、服务器图标、循环移动的虚线。大致的示意如下：
 [App] = - - - - [Server]
 [App] - = - - - [Server]
 [App] - - = - - [Server]
 [App] - - - = - [Server]
-[App] - - - - = [Server">
+[App] - - - - = [Server]">
 <meta property="og:type" content="article">
 <meta property="og:title" content="iOS中AutoLayout引起的一个动画问题">
 <meta property="og:url" content="http://xinus.wang/2016/04/autolayout-animation-issue/index.html">
 <meta property="og:site_name" content="心有思">
-<meta property="og:description" content="先说说大概的情况我做了一个ConnectingView，用来显示一个连接中的动画。动画中有三部分，手机图标、服务器图标、循环移动的虚线。大致的示意如下：
+<meta property="og:description" content="动画问题及原因我做了一个ConnectingView，用来显示一个连接中的动画。动画中有三部分，手机图标、服务器图标、循环移动的虚线。大致的示意如下：
 [App] = - - - - [Server]
 [App] - = - - - [Server]
 [App] - - = - - [Server]
 [App] - - - = - [Server]
-[App] - - - - = [Server">
-<meta property="og:updated_time" content="2017-03-21T06:41:29.000Z">
+[App] - - - - = [Server]">
+<meta property="og:updated_time" content="2017-05-15T10:01:25.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="iOS中AutoLayout引起的一个动画问题">
-<meta name="twitter:description" content="先说说大概的情况我做了一个ConnectingView，用来显示一个连接中的动画。动画中有三部分，手机图标、服务器图标、循环移动的虚线。大致的示意如下：
+<meta name="twitter:description" content="动画问题及原因我做了一个ConnectingView，用来显示一个连接中的动画。动画中有三部分，手机图标、服务器图标、循环移动的虚线。大致的示意如下：
 [App] = - - - - [Server]
 [App] - = - - - [Server]
 [App] - - = - - [Server]
 [App] - - - = - [Server]
-[App] - - - - = [Server">
+[App] - - - - = [Server]">
 
 
 
@@ -424,14 +424,14 @@
       
 
       
-        <h3 id="先说说大概的情况"><a href="#先说说大概的情况" class="headerlink" title="先说说大概的情况"></a>先说说大概的情况</h3><p>我做了一个ConnectingView，用来显示一个连接中的动画。动画中有三部分，手机图标、服务器图标、循环移动的虚线。大致的示意如下：</p>
+        <h3 id="动画问题及原因"><a href="#动画问题及原因" class="headerlink" title="动画问题及原因"></a>动画问题及原因</h3><p>我做了一个ConnectingView，用来显示一个连接中的动画。动画中有三部分，手机图标、服务器图标、循环移动的虚线。大致的示意如下：</p>
 <pre><code>[App] = - - - - [Server]
 [App] - = - - - [Server]
 [App] - - = - - [Server]
 [App] - - - = - [Server]
 [App] - - - - = [Server]
 </code></pre><p>整个ConnectingView用AutoLayout布局，然后动画部分通过改变进度条‘=’与左边[App]的间距约束来实现。然后再ViewController的viewDidLoad方法中，实例化ConnectingView，并通过代码设置AutoLayout放置在view中，然后startAnimation。<br><a id="more"></a></p>
-<h3 id="动画问题及原因"><a href="#动画问题及原因" class="headerlink" title="动画问题及原因"></a>动画问题及原因</h3><p>接着发现一个动画问题，再部分手机上，进入这个ViewController并开始动画时，进度条‘=’的初始位置可能会超过[App], 但第2次循环时，不会超过。</p>
+<p>接着发现一个动画问题，再部分手机上，进入这个ViewController并开始动画时，进度条‘=’的初始位置可能会超过[App], 但第2次循环时，不会超过。</p>
 <p>经过调查，这个问题的原因在于动画开始的时候，与AutoLayout重新布局存在时间上的冲突。</p>
 <p>ConnectingView通过XIB设计，ViewController是在StoryBoard中设计。ViewController的viewDidLoad是程序载入StoryBoard中的设计完成，而初始的尺寸也就是Storyboard的尺寸；ConnectingView通过XIB实例化，初始的尺寸也是XIB的尺寸，虽然我们设置了AutoLayout，但整体的布局还没有适配屏幕；这个时候我们开始动画，也就是计算动画的初始位置都还是原始的尺寸。viewDidLoad完成后，再viewDidAppear之前的时间节点中，ViewController根据需要整体重新布局，而我们的动画已经照旧的位置已经开始，这时候的冲突就造成了前面提到的问题。</p>
 <h3 id="最后的解决"><a href="#最后的解决" class="headerlink" title="最后的解决"></a>最后的解决</h3><p>开始，我尝试过让动画开始的时间延后一定时间开始，或者干脆到ViewDidAppear中再开始动画，而不是viewDidLoad。这样虽然不会出现上面提到的问题，但明显能感觉到延迟，约0.5s左右，肉眼可以感知。</p>
@@ -587,7 +587,7 @@
           
             <div class="site-state-item site-state-posts">
               <a href="/archives">
-                <span class="site-state-item-count">29</span>
+                <span class="site-state-item-count">30</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
@@ -598,7 +598,7 @@
             
             <div class="site-state-item site-state-categories">
               <a href="/categories/index.html">
-                <span class="site-state-item-count">8</span>
+                <span class="site-state-item-count">9</span>
                 <span class="site-state-item-name">分类</span>
               </a>
             </div>
@@ -609,7 +609,7 @@
             
             <div class="site-state-item site-state-tags">
               <a href="/tags/index.html">
-                <span class="site-state-item-count">35</span>
+                <span class="site-state-item-count">38</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>
@@ -658,7 +658,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#先说说大概的情况"><span class="nav-number">1.</span> <span class="nav-text">先说说大概的情况</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#动画问题及原因"><span class="nav-number">2.</span> <span class="nav-text">动画问题及原因</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#最后的解决"><span class="nav-number">3.</span> <span class="nav-text">最后的解决</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#动画问题及原因"><span class="nav-number">1.</span> <span class="nav-text">动画问题及原因</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#最后的解决"><span class="nav-number">2.</span> <span class="nav-text">最后的解决</span></a></li></ol></div>
             
 
           </div>
