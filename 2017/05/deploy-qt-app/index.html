@@ -95,7 +95,7 @@
 <meta property="og:url" content="http://xinus.wang/2017/05/deploy-qt-app/index.html">
 <meta property="og:site_name" content="心有思">
 <meta property="og:description" content="应用程序开发完成后，需要打包成一个可以执行的包交付测试。常见对应Window、macOS、Linux三个常见桌面操作环境，会采用不同的打包方式。而其中Linux的发行版本众多，制作DEB或者RPM等不同的包也有区别。">
-<meta property="og:updated_time" content="2017-05-15T10:00:40.000Z">
+<meta property="og:updated_time" content="2017-05-19T05:06:07.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="部署Qt应用程序">
 <meta name="twitter:description" content="应用程序开发完成后，需要打包成一个可以执行的包交付测试。常见对应Window、macOS、Linux三个常见桌面操作环境，会采用不同的打包方式。而其中Linux的发行版本众多，制作DEB或者RPM等不同的包也有区别。">
@@ -410,7 +410,11 @@
 
       
         <p>应用程序开发完成后，需要打包成一个可以执行的包交付测试。常见对应Window、macOS、Linux三个常见桌面操作环境，会采用不同的打包方式。而其中Linux的发行版本众多，制作DEB或者RPM等不同的包也有区别。<br><a id="more"></a></p>
-<h3 id="Windows平台"><a href="#Windows平台" class="headerlink" title="Windows平台"></a>Windows平台</h3><h3 id="macOS平台"><a href="#macOS平台" class="headerlink" title="macOS平台"></a>macOS平台</h3><h3 id="Ubuntu平台"><a href="#Ubuntu平台" class="headerlink" title="Ubuntu平台"></a>Ubuntu平台</h3><h3 id="结语"><a href="#结语" class="headerlink" title="结语"></a>结语</h3>
+<h3 id="Windows平台"><a href="#Windows平台" class="headerlink" title="Windows平台"></a>Windows平台</h3><p>windeployqt是Qt官方提供的工具，其位于Qt安装路径下面的Bin目录下，可以手动就入PATH方便命令行中使用。windeployqt主要的作用是自动把程序所依赖的动态库、插件、其他资源等拷贝到程序的当前目录下。<br>拷贝编译得到的myapp.exe拷贝到某个单独的目录中，然后在该目录下执行此命令：<br><figure class="highlight bat"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="function">D:\<span class="title">MyApp</span>&gt;<span class="title">windeployqt</span> <span class="title">myapp.exe</span></span></div></pre></td></tr></table></figure></p>
+<p>如果是Qt Qucik程序，则还需要把qml的目录带上，这个路径一般也在Qt安装目录下的<br><figure class="highlight bat"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="function">D:\<span class="title">MyApp</span>&gt;<span class="title">windeployqt</span> <span class="title">myapp.exe</span> --<span class="title">qmldir</span> <span class="title">QML_PATH</span></span></div></pre></td></tr></table></figure></p>
+<h3 id="macOS平台"><a href="#macOS平台" class="headerlink" title="macOS平台"></a>macOS平台</h3><p>macOS平台也有类似的工具macdeployqt。当编译好myapp.app文件后，执行此命令可以解决依赖问题，如果增加 -dmg参数，则可以直接打包成dmg格式：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ macdeployqt myapp.app -dmg</div></pre></td></tr></table></figure></p>
+<h3 id="Ubuntu平台"><a href="#Ubuntu平台" class="headerlink" title="Ubuntu平台"></a>Ubuntu平台</h3><p>Linux平台上，Qt并没有提供相关的工具来解决依赖，但是我们可以直接deb、rpm等包格式，通过Ubuntu的仓库或者Fedora仓库解决Qt的依赖问题。</p>
+<h3 id="结语"><a href="#结语" class="headerlink" title="结语"></a>结语</h3>
       
     </div>
 
