@@ -306,6 +306,131 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://xinus.wang/2017/06/uidebugginginformationoverlay/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Xinus">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="心有思">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h2 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2017/06/uidebugginginformationoverlay/" itemprop="url">
+                  UIDebuggingInformationOverlay
+                </a>
+              
+            
+          </h2>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-06-06T16:22:39+08:00">
+                2017-06-06
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h3 id="起因"><a href="#起因" class="headerlink" title="起因"></a>起因</h3><p>最近看到一篇文章(<a href="http://ryanipete.com/blog/ios/swift/objective-c/uidebugginginformationoverlay/" target="_blank" rel="external">原文</a>)，大意是做这位哥们在看Apple的私有API的时候，无意发现<code>UIDebuggingInformationOverlay</code>这么一个类，然后Google也搜不到太多的信息，就自己研究了一下，发现这个类可能是Apple内部用来帮助开发人员和设计人员用来Debug他们的app的。</p>
+<p>这个类是一个<code>UIWindow</code>的一个私有子类，可以在App里面显示一个浮动的窗口，里面有当前View的层级结构和一些尺寸信息，很方便的查看相关信息。如图：</p>
+<p><img src="/images/UIDebuggingInformationOverlay.jpg" alt="image"></p>
+<h3 id="如何使用"><a href="#如何使用" class="headerlink" title="如何使用"></a>如何使用</h3><p>启动App时，加入初始化的相关代码，如下 （原文中是Swift语言版本）：<br><figure class="highlight objc"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">- (<span class="built_in">BOOL</span>)application:(<span class="built_in">UIApplication</span> *)application didFinishLaunchingWithOptions:(<span class="built_in">NSDictionary</span> *)launchOptions &#123;</div><div class="line">    <span class="comment">// Override point for customization after application launch.</span></div><div class="line"></div><div class="line">    <span class="keyword">id</span> overlayClass = <span class="built_in">NSClassFromString</span>(<span class="string">@"UIDebuggingInformationOverlay"</span>);</div><div class="line">    [overlayClass performSelector:<span class="built_in">NSSelectorFromString</span>(<span class="string">@"prepareDebuggingOverlay"</span>)];</div><div class="line"></div><div class="line">    <span class="keyword">return</span> <span class="literal">YES</span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<h3 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h3><p>对查找一些UI问题时，比如层级结构、Frame尺寸等，是一个非常直观的工具。除了能修改透明度以外，其他的参数都没有办法通过这个浮动窗口来调节，如果能加入修改背景色等功能，可能更加实用。</p>
+
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
     <link itemprop="mainEntityOfPage" href="http://xinus.wang/2017/05/deploy-qt-app/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1191,155 +1316,6 @@
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://xinus.wang/2017/01/crash-ios8-cgpathaddlinetopoint/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Xinus">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.png">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="心有思">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h2 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2017/01/crash-ios8-cgpathaddlinetopoint/" itemprop="url">
-                  iOS8上CGPathAddLineToPoint引起的crash
-                </a>
-              
-            
-          </h2>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-01-09T14:35:30+08:00">
-                2017-01-09
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/ios/" itemprop="url" rel="index">
-                    <span itemprop="name">ios</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <h3 id="Crash日志"><a href="#Crash日志" class="headerlink" title="Crash日志"></a>Crash日志</h3><p><img src="/images/ios8-crash-1.png" alt="image"></p>
-<p>如果传入的CGPoint的值是NaN, 就可能触发这个Crash:<br><figure class="highlight objc"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">CGPoint</span> pt = &#123;</div><div class="line">    [[<span class="built_in">NSDecimalNumber</span> notANumber] doubleValue],</div><div class="line">    [[<span class="built_in">NSDecimalNumber</span> notANumber] doubleValue]&#125;;</div><div class="line"><span class="built_in">CGPathAddLineToPoint</span>(pt); <span class="comment">// iOS8 crash here!</span></div></pre></td></tr></table></figure></p>
-<p>通过上述代码，模拟该crash，同时会在控制台看到如下输出：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">Assertion failed: (CGFloatIsValid(x) &amp;&amp; CGFloatIsValid(y)), function void CGPathAddLineToPoint(CGMutablePathRef, const CGAffineTransform *, CGFloat, CGFloat), file Paths/CGPath.cc, line 265.</div></pre></td></tr></table></figure></p>
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2017/01/crash-ios8-cgpathaddlinetopoint/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
   </section>
 
   
@@ -1389,7 +1365,7 @@
           
             <div class="site-state-item site-state-posts">
               <a href="/archives">
-                <span class="site-state-item-count">30</span>
+                <span class="site-state-item-count">31</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
@@ -1411,7 +1387,7 @@
             
             <div class="site-state-item site-state-tags">
               <a href="/tags/index.html">
-                <span class="site-state-item-count">38</span>
+                <span class="site-state-item-count">36</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>
