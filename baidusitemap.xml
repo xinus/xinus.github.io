@@ -5,14 +5,19 @@
     
   <url>
     <loc>http://xinus.wang/2017/06/uidebugginginformationoverlay/</loc>
-    <lastmod>2017-06-06T09:08:46.000Z</lastmod>
+    <lastmod>2017-06-06T09:12:07.000Z</lastmod>
     <data>
         <display>
-        <title>UIDebuggingInformationOverlay</title>
+        <title>悬浮窗口调试工具私有类UIDebuggingInformationOverlay</title>
         <pubTime>2017-06-06T08:22:39.000Z</pubTime>
         
+        <tag>debugging</tag>
+         
          
            
+             
+              <breadCrumb title="ios" url="http://xinus.wang/categories/ios/"/>
+          
         </display>
     </data>
     </url>
