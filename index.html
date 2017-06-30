@@ -409,7 +409,9 @@
 <p>这个类是一个<code>UIWindow</code>的一个私有子类，可以在App里面显示一个浮动的窗口，里面有当前View的层级结构和一些尺寸信息，很方便的查看相关信息。如图：</p>
 <p><img src="/images/UIDebuggingInformationOverlay.jpg" alt="image"></p>
 <h3 id="如何使用"><a href="#如何使用" class="headerlink" title="如何使用"></a>如何使用</h3><p>启动App时，加入初始化的相关代码，如下 （原文中是Swift语言版本）：<br><figure class="highlight objc"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">- (<span class="built_in">BOOL</span>)application:(<span class="built_in">UIApplication</span> *)application didFinishLaunchingWithOptions:(<span class="built_in">NSDictionary</span> *)launchOptions &#123;</div><div class="line">    <span class="comment">// Override point for customization after application launch.</span></div><div class="line"></div><div class="line">    <span class="keyword">id</span> overlayClass = <span class="built_in">NSClassFromString</span>(<span class="string">@"UIDebuggingInformationOverlay"</span>);</div><div class="line">    [overlayClass performSelector:<span class="built_in">NSSelectorFromString</span>(<span class="string">@"prepareDebuggingOverlay"</span>)];</div><div class="line"></div><div class="line">    <span class="keyword">return</span> <span class="literal">YES</span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
-<h3 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h3><p>对查找一些UI问题时，比如层级结构、Frame尺寸等，是一个非常直观的工具。除了能修改透明度以外，其他的参数都没有办法通过这个浮动窗口来调节，如果能加入修改背景色等功能，可能更加实用。</p>
+<p>运行App，用两个手指点击顶部的状态栏就可以调出该窗口。</p>
+<h3 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h3><p>对查找一些UI问题时，比如View和ViewController层级结构、Frame尺寸等，是一个非常直观的工具。如果工程比较大，针对一些页面不知道找什么类的时候，可以通过这个工具反查到View或者ViewController的类名，然后去看代码。</p>
+<p>除了能修改透明度以外，其他的参数都没有办法通过这个浮动窗口来调节，如果能加入修改背景色等功能，可能更加实用。</p>
 
           
         
